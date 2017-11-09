@@ -1,9 +1,9 @@
 const Model = require('keras-js').Model;
 const model = new Model({
   filepaths: {
-    model: './travel-price.json',
-    weights: './travel-price_weights.buf',
-    metadata: './travel-price_metadata.json',
+    model: __dirname + '/travel-price.json',
+    weights: __dirname + '/travel-price_weights.buf',
+    metadata: __dirname + '/travel-price_metadata.json',
   },
   filesystem: true
 });

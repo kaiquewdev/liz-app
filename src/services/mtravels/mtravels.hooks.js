@@ -1,12 +1,14 @@
 
 
+const distancePrediction = require('../../hooks/distance-prediction');
+
 module.exports = {
   before: {
     all: [],
     find: [],
     get: [],
-    create: [],
-    update: [],
+    create: [distancePrediction()],
+    update: [distancePrediction()],
     patch: [],
     remove: []
   },

@@ -18,7 +18,7 @@ module.exports = function (options = {}) { // eslint-disable-line no-unused-vars
     console.log(hook.data);
     const distance = parseFloat(hook.data.distance,10);
     const dim = ndarray([distance]);
-    console.log(`Input data: ${dim.data} meters`);
+    console.log(`Input data: ${dim.data} km`);
     model
       .ready()
       .then(() => {

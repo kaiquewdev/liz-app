@@ -41,6 +41,7 @@
     "feathers-socketio": "^2.0.1",
     "helmet": "^3.9.0",
     "keras-js": "^0.3.0",
+    "ndarray": "^1.0.18",
     "serve-favicon": "^2.4.5",
     "winston": "^2.4.0"
   },

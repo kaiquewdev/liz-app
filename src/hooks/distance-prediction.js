@@ -19,7 +19,9 @@ module.exports = function (options = {}) { // eslint-disable-line no-unused-vars
     const c = 10, v = 4;
     const reachLine = Math.pow(c,v);
     if (hook.data.distance === undefined) hook.data.distance = 0;
-    if (hook.data.distance >= reachLine) hook.data.distance = reachLine;
+    if (hook.data.distance > reachLine) hook.data.distance = reachLine;
+    if (hook.data.qty === undefined) hook.data.qty = 1;
+    if (hook.data.qty > 100) hook.data.qty = 100;
     const d = hook.data.distance;
     const distance = parseFloat(d,c);
     const dim = ndarray([distance]);
@@ -32,7 +34,7 @@ module.exports = function (options = {}) { // eslint-disable-line no-unused-vars
         return model.predict(inputData);
       })
       .then(outputData => {
-        hook.data.price = outputData['output']['0'];
+        hook.data.price = outputData['output']['0'] * hook.data.qty;
         next();
       })
       .catch(err => next(err));

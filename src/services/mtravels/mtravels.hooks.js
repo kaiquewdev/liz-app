@@ -2,6 +2,8 @@
 
 const distancePrediction = require('../../hooks/distance-prediction');
 
+const distanceLimits = require('../../hooks/distance-limits');
+
 module.exports = {
   before: {
     all: [],
@@ -27,8 +29,8 @@ module.exports = {
     all: [],
     find: [],
     get: [],
-    create: [],
-    update: [],
+    create: [distanceLimits()],
+    update: [distanceLimits()],
     patch: [],
     remove: []
   }

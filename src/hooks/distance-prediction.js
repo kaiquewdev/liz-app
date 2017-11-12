@@ -5,6 +5,7 @@ const Model = require('keras-js').Model;
 
 module.exports = function (options = {}) { // eslint-disable-line no-unused-vars
   return function distancePrediction (hook,next) {
+    next = next || function () {};
     // Hooks can either return nothing or a promise
     // that resolves with the `hook` object for asynchronous operations
     const model = new Model({
@@ -15,10 +16,9 @@ module.exports = function (options = {}) { // eslint-disable-line no-unused-vars
       },
       filesystem: true
     });
-    console.log(hook.data);
-    const distance = parseFloat(hook.data.distance,10);
+    const d = hook.data.distance;
+    const distance = parseFloat(d === undefined && (Math.pow(10,4) || 0),10);
     const dim = ndarray([distance]);
-    console.log(`Input data: ${dim.data} km`);
     model
       .ready()
       .then(() => {
@@ -28,8 +28,7 @@ module.exports = function (options = {}) { // eslint-disable-line no-unused-vars
         return model.predict(inputData);
       })
       .then(outputData => {
-        console.log(outputData);
-        hook.data.price = outputData["output"]["0"];
+        hook.data.price = outputData['output']['0'];
         next();
       })
       .catch(err => next(err));

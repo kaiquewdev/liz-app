@@ -1,12 +1,13 @@
 const assert = require('assert');
-const distancePrediction = require('../../src/hooks/distance-prediction');
+const distanceLimits = require('../../src/hooks/distance-limits');
 
-describe('\'distance-prediction\' hook', () => {
+describe('\'distance-limits\' hook', () => {
   it('runs the hook', () => {
     // A mock hook object
-    const mock = {data:{distance:100}};
+    const tailLimit = Math.pow(10,4);
+    const mock = {data:{distance:tailLimit}};
     // Initialize our hook with no options
-    const hook = distancePrediction();
+    const hook = distanceLimits();
 
     // Run the hook function (which returns a promise)
     // and compare the resulting hook object

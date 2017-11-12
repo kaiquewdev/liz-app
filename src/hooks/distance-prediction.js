@@ -16,8 +16,12 @@ module.exports = function (options = {}) { // eslint-disable-line no-unused-vars
       },
       filesystem: true
     });
+    const c = 10, v = 4;
+    const reachLine = Math.pow(c,v);
+    if (hook.data.distance === undefined) hook.data.distance = 0;
+    if (hook.data.distance >= reachLine) hook.data.distance = reachLine;
     const d = hook.data.distance;
-    const distance = parseFloat(d === undefined && (Math.pow(10,4) || 0),10);
+    const distance = parseFloat(d,c);
     const dim = ndarray([distance]);
     model
       .ready()

@@ -1,1 +1,1 @@
-[{"offset": 0, "layer_name": "dense_1", "length": 1, "type": "float32", "shape": [1, 1], "weight_name": "dense_1/kernel:0"}, {"offset": 4, "layer_name": "dense_1", "length": 1, "type": "float32", "shape": [1], "weight_name": "dense_1/bias:0"}]
+[{"layer_name": "dense_1", "weight_name": "dense_1/kernel:0", "offset": 0, "length": 1, "shape": [1, 1], "type": "float32"}, {"layer_name": "dense_1", "weight_name": "dense_1/bias:0", "offset": 4, "length": 1, "shape": [1], "type": "float32"}]

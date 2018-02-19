@@ -6,7 +6,7 @@ module.exports = function (options = {}) { // eslint-disable-line no-unused-vars
     next = next || function () {};
     // Hooks can either return nothing or a promise
     // that resolves with the `hook` object for asynchronous operations
-    if (hook.data.distance === undefined) {
+    if (hook.data !== undefined && hook.data.distance === undefined) {
       delete hook.data.distance;
       delete hook.data.price;
       hook.data.warning = 'Distance must be defined.';

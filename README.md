@@ -1,5 +1,7 @@
 # liz-app
 
+[![Build Status](https://travis-ci.com/kaiquewdev/liz-app.svg?token=fP2MzeqGP5sWPBqwVGGZ&branch=master)](https://travis-ci.com/kaiquewdev/liz-app)
+
 > Models working with the api
 
 ## About

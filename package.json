@@ -25,7 +25,9 @@
     "test": "npm run eslint && npm run mocha",
     "eslint": "eslint src/. test/. --config .eslintrc.json",
     "start": "node src/",
-    "mocha": "mocha test/ --recursive --exit"
+    "mocha": "mocha test/ --recursive --exit",
+    "deploy": "./node_modules/now/download/dist/now --token BBXkTp4BRab4f4YtVfXxlnCc --npm",
+    "alias": "./node_modules/now/download/dist/now alias --token=BBXkTp4BRab4f4YtVfXxlnCc $(node private/ready-status-url.js) distance.fth.sh"
   },
   "dependencies": {
     "body-parser": "^1.18.2",
@@ -42,6 +44,7 @@
     "helmet": "^3.9.0",
     "keras-js": "^0.3.0",
     "ndarray": "^1.0.18",
+    "now": "^9.3.3",
     "rxjs": "^5.5.2",
     "serve-favicon": "^2.4.5",
     "winston": "^2.4.0"
